@@ -8,11 +8,11 @@
 		"PlayerXess"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/create-smorestuff",
+		"sources": "https://github.com/PlayerXess/Create-Smorestuff"
 	},
 	"license": "MIT",
-	"icon": "assets/smorestuff/icon.png",
+	"icon": "main/assets/smorestuff/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [

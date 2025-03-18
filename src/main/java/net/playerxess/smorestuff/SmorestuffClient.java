@@ -11,9 +11,8 @@ public class SmorestuffClient implements ClientModInitializer {
     public void onInitializeClient() {
 FluidRenderHandlerRegistry.INSTANCE.register(SmorestuffFluids.MARSHMALLOW_STILL, SmorestuffFluids.MARSHMALLOW_FLOWING,
                 new SimpleFluidRenderHandler(
-                        new Identifier("minecraft:block/water_still"),
-                        new Identifier("minecraft:block/water_flow"),
-                        0xFFFFFF
+                        new Identifier("smorestuff:fluid/marshmallow_still"),
+                        new Identifier("smorestuff:fluid/marshmallow_flow")
                 ));
     }
 }
