@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "smorestuff",
 	"version": "${version}",
-	"name": "Create: SmoreStuff",
+	"name": "Create: Smorestuff",
 	"description": "Adds S'more Stuff",
 	"authors": [
 		"PlayerXess"
@@ -16,13 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.playerxess.smorestuff.SmoreStuff"
+			"net.playerxess.smorestuff.Smorestuff"
 		],
 		"client": [
-			"net.playerxess.smorestuff.SmoreStuffClient"
+			"net.playerxess.smorestuff.SmorestuffClient"
 		],
 		"fabric-datagen": [
-			"net.playerxess.smorestuff.SmoreStuffDataGenerator"
+			"net.playerxess.smorestuff.SmorestuffDataGenerator"
 		]
 	},
 	"mixins": [

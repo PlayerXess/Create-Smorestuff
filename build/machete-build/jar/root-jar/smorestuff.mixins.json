@@ -1,0 +1,1 @@
+{"required":true,"package":"net.playerxess.smorestuff.mixin","compatibilityLevel":"JAVA_17","mixins":["SmorestuffMixin"],"injectors":{"defaultRequire":1}}

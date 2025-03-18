@@ -60,22 +60,22 @@ public abstract class MarshmallowFluid extends FlowableFluid {
 
     @Override
     public Fluid getStill() {
-        return ModFluids.MARSHMALLOW_STILL;
+        return SmorestuffFluids.MARSHMALLOW_STILL;
     }
 
     @Override
     public Fluid getFlowing() {
-        return ModFluids.MARSHMALLOW_FLOWING;
+        return SmorestuffFluids.MARSHMALLOW_FLOWING;
     }
 
     @Override
     public Item getBucketItem() {
-        return ModFluids.MARSHMALLOW_BUCKET;
+        return SmorestuffFluids.MARSHMALLOW_BUCKET;
     }
 
     @Override
     protected BlockState toBlockState(FluidState state) {
-        return ModFluids.FLUID_MARSHMALLOW_BLOCK.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
+        return SmorestuffFluids.FLUID_MARSHMALLOW_BLOCK.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
     }
 
     @Override
