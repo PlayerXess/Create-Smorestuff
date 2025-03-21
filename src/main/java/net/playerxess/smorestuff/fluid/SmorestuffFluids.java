@@ -25,9 +25,9 @@ public class SmorestuffFluids {
 
     public static void registerModFluids() {
         MARSHMALLOW_STILL = Registry.register(Registries.FLUID,
-                new Identifier(Smorestuff.MOD_ID, "fluid_marshmallow"), new MarshmallowFluid.Still());
+                new Identifier(Smorestuff.MOD_ID, "marshmallow_still"), new MarshmallowFluid.Still());
         MARSHMALLOW_FLOWING = Registry.register(Registries.FLUID,
-                new Identifier(Smorestuff.MOD_ID, "flowing_marshmallow"), new MarshmallowFluid.Flowing());
+                new Identifier(Smorestuff.MOD_ID, "marshmallow_flow"), new MarshmallowFluid.Flowing());
 
         FLUID_MARSHMALLOW_BLOCK = Registry.register(Registries.BLOCK, new Identifier(Smorestuff.MOD_ID, "fluid_marshmallow_block"),
                 new FluidBlock(SmorestuffFluids.MARSHMALLOW_STILL, FabricBlockSettings.copyOf(Blocks.field_10382)){ });

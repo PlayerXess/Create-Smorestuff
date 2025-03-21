@@ -12,7 +12,7 @@
 		"sources": "https://github.com/PlayerXess/Create-Smorestuff"
 	},
 	"license": "MIT",
-	"icon": "main/assets/smorestuff/icon.png",
+	"icon": "icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [

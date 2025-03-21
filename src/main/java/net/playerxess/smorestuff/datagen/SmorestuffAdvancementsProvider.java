@@ -14,13 +14,13 @@ import net.playerxess.smorestuff.item.SmorestuffItems;
 
 public class SmorestuffAdvancementsProvider extends FabricAdvancementProvider {
 
-	public SmorestuffAdvancementsProvider(FabricDataOutput dataGenerator) {
-		super(dataGenerator);
-	}
+    public SmorestuffAdvancementsProvider(FabricDataOutput dataGenerator) {
+        super(dataGenerator);
+    }
 
-	@Override
+    @Override
     public void generateAdvancement(Consumer<Advancement> consumer) {
-        Advancement rootAdvancement = Advancement.Builder.create()
+        Advancement TraditionalSmoreAdvancement = Advancement.Builder.create()
                 .display(
                         SmorestuffItems.TRADITIONALSMORE, // The display icon
                         Text.literal("A Taste Of Tradition"), // The title
@@ -32,8 +32,22 @@ public class SmorestuffAdvancementsProvider extends FabricAdvancementProvider {
                         false // Hidden in the advancement tab
                 )
                 // The first string used in criterion is the name referenced by other advancements when they want to have 'requirements'
-                .criterion("got_s'more", InventoryChangedCriterion.Conditions.items(SmorestuffItems.TRADITIONALSMORE))
+                .criterion("got_tradidional_s'more", InventoryChangedCriterion.Conditions.items(SmorestuffItems.TRADITIONALSMORE))
+                .build(consumer, "smorestuff" + "/root");
+
+        Advancement MarshmalloweySmoreAdvancement = Advancement.Builder.create()
+                .display(
+                        SmorestuffItems.TRADITIONALSMORE, // The display icon
+                        Text.literal("99% Air"), // The title
+                        Text.literal("Discover The Marshmallowey S'more"), // The description
+                        new Identifier("src/main/resources/assets/smorestuff/textures/item/marshmallowey_smore.png"), // Background image used
+                        AdvancementFrame.field_1254, // Options: TASK(field_1254), CHALLENGE(field_1250), GOAL(field_1249)
+                        true, // Show toast top right
+                        true, // Announce to chat
+                        false // Hidden in the advancement tab
+                )
+                // The first string used in criterion is the name referenced by other advancements when they want to have 'requirements'
+                .criterion("got_marshmallowey_s'more", InventoryChangedCriterion.Conditions.items(SmorestuffItems.MARSHMALLOWEYSMORE))
                 .build(consumer, "smorestuff" + "/root");
     }
 }
-
