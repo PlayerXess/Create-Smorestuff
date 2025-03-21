@@ -30,6 +30,7 @@ public class SmorestuffFluidRenderer {
     public static void registerFluidRenderer() {
         Smorestuff.LOGGER.info("Loading Fluid Rendering For Create: Smorestuff");
         setupFluidRendering();
+
     }
 
 }
