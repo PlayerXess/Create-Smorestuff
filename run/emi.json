@@ -1,0 +1,22 @@
+{
+  "favorites": [],
+  "lookup_history": [
+    "item:smorestuff:chocolatey_smore",
+    "item:smorestuff:marshmallowey_smore",
+    "item:smorestuff:marshmallow_bucket",
+    {
+      "type": "fluid",
+      "id": "smorestuff:marshmallow_still",
+      "amount": 0
+    },
+    "item:smorestuff:graham_cracker"
+  ],
+  "craft_history": [],
+  "recipe_defaults": {
+    "added": [],
+    "tags": {},
+    "resolutions": {},
+    "disabled": []
+  },
+  "hidden_stacks": []
+}

@@ -23,6 +23,10 @@ public class SmorestuffFluids {
     public static Block FLUID_MARSHMALLOW_BLOCK;
     public static Item MARSHMALLOW_BUCKET;
 
+    /*
+    * Note To Future Self
+    */
+
     public static void registerModFluids() {
         MARSHMALLOW_STILL = Registry.register(Registries.FLUID,
                 new Identifier(Smorestuff.MOD_ID, "marshmallow_still"), new MarshmallowFluid.Still());

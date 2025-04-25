@@ -5,8 +5,8 @@
       "item": "smorestuff:traditional_smore"
     },
     {
-      "amount": 2250,
-      "fluid": "smorestuff:fluid_marshmallow",
+      "amount": 4050,
+      "fluid": "smorestuff:marshmallow_still",
       "nbt": {}
     }
   ],

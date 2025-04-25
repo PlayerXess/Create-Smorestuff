@@ -2,34 +2,39 @@
 //file:noinspection GroovyAccessibility
 //file:noinspection GradlePackageVersionRange
 plugins {
-	id "fabric-loom" version "1.5.+"
+	id "fabric-loom" version "1.10-SNAPSHOT"
 	id "io.github.p03w.machete" version "1.+" // automatic jar compressing on build
 	id "maven-publish"
 }
 
-
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
-archivesBaseName = project.archives_base_name
+// ArchivesBaseName is Used For The Name Of The Output Jar
+archivesBaseName = "create-smorestuff-" + project.mod_version + project.archives_base_name
 group = project.maven_group
 
-// Formats the mod version to include the Minecraft version and build number (if present)
-// example: 1.0.0+1.18.2-100
-String buildNumber = System.getenv("GITHUB_RUN_NUMBER")
-version = "${mod_version}+${minecraft_version}" + (buildNumber != null ? "-${buildNumber}" : "")
+version = "${mod_version}+${minecraft_version}"
 
 repositories {
-	maven { url = "https://maven.shedaniel.me/" } // Cloth Config, REI
+	maven { url = "https://maven.shedaniel.me/" } // Cloth Config
 	maven { url = "https://maven.parchmentmc.org" } // Parchment mappings
 	maven { url = "https://api.modrinth.com/maven" } // LazyDFU
-	maven { url = "https://maven.terraformersmc.com/releases/" } // Mod Menu
+	maven {url = "https://maven.terraformersmc.com/"} // Mod Menu, EMI
 	maven { url = "https://mvn.devos.one/snapshots/" } // Create, Porting Lib, Forge Tags, Milk Lib, Registrate
 	maven { url = "https://mvn.devos.one/releases/" } // Porting Lib Releases
 	maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
 	maven { url = "https://maven.jamieswhiteshirt.com/libs-release" } // Reach Entity Attributes
 	maven { url = "https://jitpack.io/" } // Mixin Extras, Fabric ASM
 	maven { url = "https://maven.tterrag.com/" } // Flywheel
+
+	maven {
+		url = uri("https://maven.pkg.github.com/PlayerXess/Layered-Rendering-Engine")
+		credentials {
+			username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+			password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+		}
+	}
 }
 
 configurations.configureEach {
@@ -49,20 +54,25 @@ dependencies {
 	})
 	modImplementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
 
-	// dependencies
+		// dependencies
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
+
+	modImplementation("net.playerxess.plre:plre:${plre_version}")
 
 	// Create - dependencies are added transitively
 	modImplementation("com.simibubi.create:create-fabric-${minecraft_version}:${create_version}")
 
-	// Development QOL
+		// Development QOL
+
+	// LazyDFU
 	modLocalRuntime("maven.modrinth:lazydfu:${lazydfu_version}")
+
+	// Mod Menu
 	modLocalRuntime("com.terraformersmc:modmenu:${modmenu_version}")
 
-	modLocalRuntime("me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}");
-
-	modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}")
-	modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}")
+	// EMI
+	modCompileOnly "dev.emi:emi-fabric:${emi_version}+${minecraft_version}:api"
+	modLocalRuntime "dev.emi:emi-fabric:${emi_version}+${minecraft_version}"
 }
 
 processResources {
@@ -88,7 +98,6 @@ fabricApi {
 }
 
 machete {
-	// disable machete locally for faster builds
 	enabled = true
 }
 
