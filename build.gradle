@@ -28,13 +28,19 @@ repositories {
 	maven { url = "https://jitpack.io/" } // Mixin Extras, Fabric ASM
 	maven { url = "https://maven.tterrag.com/" } // Flywheel
 
-	maven {
-		url = uri("https://maven.pkg.github.com/PlayerXess/Layered-Rendering-Engine")
-		credentials {
-			username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-			password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+	// CustomBrewRecipes
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
 		}
 	}
+
 }
 
 configurations.configureEach {
@@ -55,12 +61,15 @@ dependencies {
 	modImplementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
 
 		// dependencies
-	modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
 
-	modImplementation("net.playerxess.plre:plre:${plre_version}")
+	// Fabric API
+	modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
 
 	// Create - dependencies are added transitively
 	modImplementation("com.simibubi.create:create-fabric-${minecraft_version}:${create_version}")
+
+	// CustomBrewRecipes
+	modImplementation "maven.modrinth:custombrewrecipes:${rootProject.custombrewrecipes_version}"
 
 		// Development QOL
 

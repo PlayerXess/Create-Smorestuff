@@ -1,14 +1,17 @@
 package net.playerxess.smorestuff.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.playerxess.smorestuff.Smorestuff;
+
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.item.*;
+
+import net.playerxess.smorestuff.Smorestuff;
 import net.playerxess.smorestuff.item.custom.TraditionalSmoreItem;
 
 public class SmorestuffItems {
+
     public static final Item MARSHMALLOW = registerItem("marshmallow", new Item(new FabricItemSettings()));
 
     public static final Item PRESSED_DOUGH = registerItem("pressed_dough", new Item(new FabricItemSettings()));
@@ -20,7 +23,6 @@ public class SmorestuffItems {
 
     public static final Item MARSHMALLOWEYSMORE = registerItem("marshmallowey_smore", new Item(new FabricItemSettings().food(SmorestuffFoodComponents.MARSHMALLOWEYSMOREFOOD)));
     public static final Item CHOCOLATEYSMORE = registerItem("chocolatey_smore", new Item(new FabricItemSettings().food(SmorestuffFoodComponents.CHOCOLATEYSMOREFOOD)));
-
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Smorestuff.MOD_ID, name), item);

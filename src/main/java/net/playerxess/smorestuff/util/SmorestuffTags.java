@@ -11,9 +11,7 @@ public class SmorestuffTags {
 
 	public static class Blocks {
 
-
-
-		private static TagKey<Block> createTag(String name) {
+		private static TagKey<Block> createBlockTag(String name) {
             return TagKey.of(RegistryKeys.field_41254, new Identifier(Smorestuff.MOD_ID, name));
         }
 
@@ -21,9 +19,12 @@ public class SmorestuffTags {
 
 	public static class Items {
 
-		private static TagKey<Item> createTag(String name) {
+		private static TagKey<Item> createItemTag(String name) {
             return TagKey.of(RegistryKeys.field_41197, new Identifier(Smorestuff.MOD_ID, name));
         }
+
+		public static final TagKey<Item> COOKED_SMORE =
+				createItemTag("cooked_smore");
 
 	}
 }

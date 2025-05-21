@@ -1,10 +1,8 @@
 package net.playerxess.smorestuff.item;
 
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import java.util.Random;
 
 public class SmorestuffFoodComponents {
 

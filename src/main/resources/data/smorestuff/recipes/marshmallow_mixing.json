@@ -5,14 +5,14 @@
       "item": "minecraft:sugar"
     },
     {
-      "amount": 5400,
+      "amount": 20250,
       "fluid": "create:honey",
       "nbt": {}
     }
   ],
   "results": [
     {
-      "amount": 5400,
+      "amount": 20250,
       "fluid": "smorestuff:fluid_marshmallow",
       "nbt": {}
     }
