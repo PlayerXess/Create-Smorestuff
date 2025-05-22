@@ -1,14 +1,14 @@
 package net.playerxess.smorestuff.item;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.playerxess.smorestuff.item.custom.TraditionalSmoreItem;
+import net.playerxess.smorestuff.Smorestuff;
 
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.item.*;
 
-import net.playerxess.smorestuff.Smorestuff;
-import net.playerxess.smorestuff.item.custom.TraditionalSmoreItem;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
 public class SmorestuffItems {
 

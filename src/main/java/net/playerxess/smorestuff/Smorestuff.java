@@ -1,11 +1,11 @@
 package net.playerxess.smorestuff;
 
-import net.fabricmc.api.ModInitializer;
-
-import net.playerxess.smorestuff.item.SmorestuffItemGroups;
-import net.playerxess.smorestuff.item.SmorestuffItems;
 import net.playerxess.smorestuff.block.SmorestuffBlocks;
 import net.playerxess.smorestuff.fluid.SmorestuffFluids;
+import net.playerxess.smorestuff.item.SmorestuffItems;
+import net.playerxess.smorestuff.item.SmorestuffItemGroups;
+
+import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 public class Smorestuff implements ModInitializer {
 	public static final String MOD_ID = "smorestuff";
 	public static final Logger LOGGER = LoggerFactory.getLogger("Smorestuff");
-	public static boolean overrideDeathMessage = false;
 
 	@Override
 	public void onInitialize() {
@@ -22,7 +21,7 @@ public class Smorestuff implements ModInitializer {
 
 		SmorestuffItemGroups.registerItemGroups();
 		SmorestuffItems.registerSmorestuffItems();
-        SmorestuffBlocks.registerModBlocks();
+		SmorestuffBlocks.registerModBlocks();
 		SmorestuffFluids.registerModFluids();
 	}
 }

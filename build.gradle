@@ -11,7 +11,8 @@ sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
 // ArchivesBaseName is Used For The Name Of The Output Jar
-archivesBaseName = "create-smorestuff-" + project.mod_version + project.archives_base_name
+archivesBaseName = "create-smorestuff"
+
 group = project.maven_group
 
 version = "${mod_version}+${minecraft_version}"

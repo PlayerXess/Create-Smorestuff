@@ -1,16 +1,16 @@
 package net.playerxess.smorestuff.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
+import net.playerxess.smorestuff.item.SmorestuffItems;
+
 import net.minecraft.advancement.*;
-import java.util.function.Consumer;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
-import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.playerxess.smorestuff.item.SmorestuffItems;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
+
+import java.util.function.Consumer;
 
 public class SmorestuffAdvancementsProvider extends FabricAdvancementProvider {
 

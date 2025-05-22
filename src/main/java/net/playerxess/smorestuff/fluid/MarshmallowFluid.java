@@ -3,9 +3,9 @@ package net.playerxess.smorestuff.fluid;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.Item;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
@@ -13,8 +13,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.WorldAccess;
 
 public abstract class MarshmallowFluid extends FlowableFluid {
 
@@ -85,6 +85,7 @@ public abstract class MarshmallowFluid extends FlowableFluid {
     }
 
     public static class Flowing extends MarshmallowFluid {
+
         @Override
         protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
             super.appendProperties(builder);
@@ -101,13 +102,14 @@ public abstract class MarshmallowFluid extends FlowableFluid {
             return false;
         }
 
-		@Override
-    	protected boolean isInfinite(World world) {
-        	return false;
-    	}
+        @Override
+        protected boolean isInfinite(World world) {
+            return false;
+        }
     }
 
     public static class Still extends MarshmallowFluid {
+
         @Override
         public int getLevel(FluidState state) {
             return 8;
@@ -118,10 +120,9 @@ public abstract class MarshmallowFluid extends FlowableFluid {
             return true;
         }
 
-		@Override
-    	protected boolean isInfinite(World world) {
-        	return false;
-    	}
+        @Override
+        protected boolean isInfinite(World world) {
+            return false;
+        }
     }
-
 }

@@ -1,14 +1,13 @@
 package net.playerxess.smorestuff.block;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
 import net.playerxess.smorestuff.Smorestuff;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.BlockItem;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 
 public class SmorestuffBlocks {
 
@@ -26,7 +25,5 @@ public class SmorestuffBlocks {
 
 	public static void registerModBlocks() {
         Smorestuff.LOGGER.info(("Registering Blocks For Mod Create: Smorestuff"));
-
     }
-
 }

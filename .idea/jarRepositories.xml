@@ -59,7 +59,7 @@
     <remote-repository>
       <option name="id" value="maven4" />
       <option name="name" value="maven4" />
-      <option name="url" value="https://maven.terraformersmc.com/releases/" />
+      <option name="url" value="https://maven.terraformersmc.com/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="maven5" />
@@ -90,16 +90,6 @@
       <option name="id" value="maven10" />
       <option name="name" value="maven10" />
       <option name="url" value="https://maven.tterrag.com/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="maven4" />
-      <option name="name" value="maven4" />
-      <option name="url" value="https://maven.terraformersmc.com/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="maven11" />
-      <option name="name" value="maven11" />
-      <option name="url" value="https://maven.pkg.github.com/PlayerXess/Layered-Rendering-Engine" />
     </remote-repository>
   </component>
 </project>

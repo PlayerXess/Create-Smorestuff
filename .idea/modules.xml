@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Create-Smorestuff.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Create-Smorestuff.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Create-Smorestuff.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Create-Smorestuff.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.playerxess.Create-Smorestuff.main.iml" filepath="$PROJECT_DIR$/.idea/modules/net.playerxess.Create-Smorestuff.main.iml" />
     </modules>
   </component>
 </project>

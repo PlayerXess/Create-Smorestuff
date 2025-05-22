@@ -1,17 +1,19 @@
 package net.playerxess.smorestuff.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.playerxess.smorestuff.fluid.SmorestuffFluids;
+import net.playerxess.smorestuff.Smorestuff;
+
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.playerxess.smorestuff.Smorestuff;
-import net.playerxess.smorestuff.fluid.SmorestuffFluids;
-import net.playerxess.smorestuff.block.SmorestuffBlocks;
+
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 
 public class SmorestuffItemGroups {
+
     public static final ItemGroup SMORE_STUFF = Registry.register(Registries.ITEM_GROUP,
             new Identifier(Smorestuff.MOD_ID, "smore"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.smore"))
