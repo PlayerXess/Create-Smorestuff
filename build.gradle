@@ -1,142 +1,73 @@
-//file:noinspection GroovyAssignabilityCheck
-//file:noinspection GroovyAccessibility
-//file:noinspection GradlePackageVersionRange
 plugins {
-	id "fabric-loom" version "1.10-SNAPSHOT"
-	id "io.github.p03w.machete" version "1.+" // automatic jar compressing on build
-	id "maven-publish"
+    id 'dev.architectury.loom' version '1.10.430' apply false
+    id 'architectury-plugin' version '3.4-SNAPSHOT'
+    id 'com.gradleup.shadow' version '8.3.6' apply false
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-// ArchivesBaseName is Used For The Name Of The Output Jar
-archivesBaseName = "create-smorestuff"
-
-group = project.maven_group
-
-version = "${mod_version}+${minecraft_version}"
-
-repositories {
-	maven { url = "https://maven.shedaniel.me/" } // Cloth Config
-	maven { url = "https://maven.parchmentmc.org" } // Parchment mappings
-	maven { url = "https://api.modrinth.com/maven" } // LazyDFU
-	maven {url = "https://maven.terraformersmc.com/"} // Mod Menu, EMI
-	maven { url = "https://mvn.devos.one/snapshots/" } // Create, Porting Lib, Forge Tags, Milk Lib, Registrate
-	maven { url = "https://mvn.devos.one/releases/" } // Porting Lib Releases
-	maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
-	maven { url = "https://maven.jamieswhiteshirt.com/libs-release" } // Reach Entity Attributes
-	maven { url = "https://jitpack.io/" } // Mixin Extras, Fabric ASM
-	maven { url = "https://maven.tterrag.com/" } // Flywheel
-
-	// CustomBrewRecipes
-	exclusiveContent {
-		forRepository {
-			maven {
-				name = "Modrinth"
-				url = "https://api.modrinth.com/maven"
-			}
-		}
-		filter {
-			includeGroup "maven.modrinth"
-		}
-	}
-
+architectury {
+    minecraft = project.minecraft
 }
 
-configurations.configureEach {
-	resolutionStrategy {
-		force("net.fabricmc:fabric-loader:${fabric_loader_version}")
-	}
+allprojects {
+    group = rootProject.maven_group
+    version = rootProject.mod
 }
 
-dependencies {
+subprojects {
+    apply plugin: 'dev.architectury.loom'
+    apply plugin: 'architectury-plugin'
+    apply plugin: 'maven-publish'
 
-	// Setup
-	minecraft("com.mojang:minecraft:${minecraft_version}")
+    base {
+        // Set up a suffixed format for the mod jar names, e.g. `example-fabric`.
+        archivesName = "$archives_name-$mod-$minecraft"
+    }
 
-	mappings(loom.layered {
-		it.mappings("net.fabricmc:yarn:${yarn_version}")
-		it.parchment("org.parchmentmc.data:parchment-${minecraft_version}:${parchment_version}@zip")
-	})
-	modImplementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
+    repositories {
+        // Add repositories to retrieve artifacts from in here.
+        // You should only use this when depending on other mods because
+        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+        // for more information about repositories.
+    }
 
-		// dependencies
+    dependencies {
+        minecraft "net.minecraft:minecraft:$minecraft"
+        mappings loom.layered {
+            it.mappings("net.fabricmc:yarn:$yarn_mappings:v2")
+            it.mappings("dev.architectury:yarn-mappings-patch-neoforge:$yarn_mappings_patch_neoforge")
+        }
+    }
 
-	// Fabric API
-	modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_api_version}")
+    java {
+        // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+        // if it is present.
+        // If you remove this line, sources will not be generated.
+        withSourcesJar()
 
-	// Create - dependencies are added transitively
-	modImplementation("com.simibubi.create:create-fabric-${minecraft_version}:${create_version}")
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
 
-	// CustomBrewRecipes
-	modImplementation "maven.modrinth:custombrewrecipes:${rootProject.custombrewrecipes_version}"
+    tasks.withType(JavaCompile).configureEach {
+        it.options.release = 21
+    }
 
-		// Development QOL
+    // Configure Maven publishing.
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifactId = base.archivesName.get()
+                from components.java
+            }
+        }
 
-	// LazyDFU
-	modLocalRuntime("maven.modrinth:lazydfu:${lazydfu_version}")
-
-	// Mod Menu
-	modLocalRuntime("com.terraformersmc:modmenu:${modmenu_version}")
-
-	// EMI
-	modCompileOnly "dev.emi:emi-fabric:${emi_version}+${minecraft_version}:api"
-	modLocalRuntime "dev.emi:emi-fabric:${emi_version}+${minecraft_version}"
-}
-
-processResources {
-
-	// require dependencies to be the version compiled against or newer
-	Map<String, String> properties = Map.of(
-			"version", version,
-			"fabric_loader_version", fabric_loader_version,
-			"fabric_api_version", fabric_api_version,
-			"create_version", create_version,
-			"minecraft_version", minecraft_version
-	)
-
-	inputs.properties(properties)
-
-	filesMatching("fabric.mod.json") {
-		expand properties
-	}
-}
-
-fabricApi {
-    configureDataGeneration()
-}
-
-machete {
-	enabled = true
-}
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = Integer.parseInt(sourceCompatibility)
-}
-
-java {
-	withSourcesJar()
-}
-
-jar {
-	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}" }
-	}
-}
-
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
+        // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+        repositories {
+            // Add repositories to publish to here.
+            // Notice: This block does NOT have the same function as the block in the top level.
+            // The repositories here will be used for publishing your artifact, not for
+            // retrieving dependencies.
+        }
+    }
 }
