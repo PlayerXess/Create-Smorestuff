@@ -1,0 +1,18 @@
+{
+  "item.smorestuff.marshmallow": "Marshmallow",
+  "block.smorestuff.fluid_marshmallow_block": "Fluid Marshmallow",
+
+  "item.smorestuff.pressed_dough": "Pressed Dough",
+  "item.smorestuff.cracker": "Cracker",
+  "item.smorestuff.graham_cracker": "Graham Cracker",
+
+  "item.smorestuff.raw_smore": "Raw S'more",
+  "item.smorestuff.traditional_smore": "Traditional S'more",
+  "tooltip.smorestuff.traditional_smore_tooltip.tooltip": "Ye Old Traditional S'more",
+
+  "item.smorestuff.chocolatey_smore": "Chocolatey S'more",
+
+  "item.smorestuff.marshmallowey_smore": "Marshmallowey S'more",
+
+  "itemgroup.smore": "Create: Smorestuff"
+}

@@ -1,12 +1,5 @@
-/.architectury-transformer/
 /.gradle/
-/.gradle/
+/.idea/
+/.vscode/
 /build/
-/common/.gradle/
-/common/build/
-/fabric/.gradle/
-/fabric/build/
-/fabric/run/
-/neoforge/.gradle/
-/neoforge/build/
-/neoforge/run/
+/run/
