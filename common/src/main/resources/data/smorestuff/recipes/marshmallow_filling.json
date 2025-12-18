@@ -1,0 +1,15 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "amount": 4050,
+      "fluid": "smorestuff:marshmallow_still",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "smorestuff:marshmallow"
+    }
+  ]
+}
